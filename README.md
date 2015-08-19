@@ -22,7 +22,7 @@ You need to configure both "session manager" and "session ID manager".
 
 SessionIdManagers can be configured in files under `${JETTY_HOME}/etc`.  In following example, using `${JETTY_HOME}/etc/jetty.xml`:
 
-<myxml>
+```xml
 
   <Configure id="Server" class="org.eclipse.jetty.server.Server">
       
@@ -38,7 +38,7 @@ SessionIdManagers can be configured in files under `${JETTY_HOME}/etc`.  In foll
 
   </Configure>
 
-</myxml>
+```
 
 #### Extra options for "session id manager"
 
@@ -62,7 +62,8 @@ SessionManagers can be configured by either `${APP_ROOT}/WEB-INF/jetty-web.xml` 
 
 Sample configuration for `${APP_ROOT}/WEB-INF/jetty-web.xml`:
 
-<myxml>
+```xml
+
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
 
   (... cut ...)
@@ -83,7 +84,8 @@ Sample configuration for `${APP_ROOT}/WEB-INF/jetty-web.xml`:
     </New>
   </Set>
 </Configure>
-</myxml>
+
+```
 
 #### Extra options for "session manager"
 
