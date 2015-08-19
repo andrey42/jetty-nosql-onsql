@@ -22,6 +22,7 @@ You need to configure both "session manager" and "session ID manager".
 
 SessionIdManagers can be configured in files under `${JETTY_HOME}/etc`.  In following example, using `${JETTY_HOME}/etc/jetty.xml`:
 
+<pre>
   <Configure id="Server" class="org.eclipse.jetty.server.Server">
       
   (... cut ...)
@@ -35,6 +36,8 @@ SessionIdManagers can be configured in files under `${JETTY_HOME}/etc`.  In foll
   </Set>
 
   </Configure>
+
+</pre>
 
 #### Extra options for "session id manager"
 
