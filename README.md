@@ -61,9 +61,6 @@ Sample configuration for `${APP_ROOT}/WEB-INF/jetty-web.xml`:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
-      
-  (... cut ...)
-      
   <Get name="server">
     <Get id="IdManager" name="sessionIdManager" />
   </Get>
