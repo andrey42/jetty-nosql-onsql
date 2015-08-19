@@ -20,7 +20,7 @@ You need to configure both "session manager" and "session ID manager".
 
 ### Configuring "session ID manager"
 
-SessionIdManagers can be configured in files under `${JETTY_HOME}/etc`.  In following example, using `${JETTY_HOME}/etc/jetty.xml`.
+SessionIdManagers can be configured in files under `${JETTY_HOME}/etc`.  In following example, using `${JETTY_HOME}/etc/jetty.xml`:
 
   <?xml version="1.0"?>
   <Configure id="Server" class="org.eclipse.jetty.server.Server">
