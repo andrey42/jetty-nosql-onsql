@@ -8,7 +8,7 @@ SessionManager implementation for Jetty, based on jetty nosql support made for M
 
 ## Install
 
-jetty-nosql-onsql is an extension for jetty nosql package, available withih standard Jetty releases under name
+jetty-nosql-onsql is an extension for jetty nosql package, available withih standard Jetty releases, for example it can be found in Maven repository: http://grepcode.com/project/repo1.maven.org/maven2/org.eclipse.jetty/jetty-nosql/
 
 To install this session manager, You have to install both siandard jetty nosql library, available as jetty-nosql-<version>.jar
 and prebuilt jar jetty-nosql-onsql.jar from dist folder, into jetty's `${jetty.home}/lib/ext`.
