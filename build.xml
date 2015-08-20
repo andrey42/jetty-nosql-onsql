@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="jetty-nosql-onsql" default="compile" basedir=".">  
+  <presetdef name="javac">
+    <javac includeantruntime="false" />
+  </presetdef>
+  <property file="build.properties"/>
+  <path id="library.misc"> 
+    <pathelement location="${server.libs}/commons-codec-1.10.jar"/>
+    <pathelement location="${server.libs}/jetty-server-9.2.11.v20150529.jar"/>
+    <pathelement location="${server.libs}/jetty-nosql-9.2.11.v20150529.jar"/>
+    <pathelement location="${server.libs}/jetty-util-9.2.11.v20150529.jar"/>
+  </path>
+  <path id="classpath">
+    <path refid="library.misc"/>       
+  </path>
+  <target name="init">
+    <buildnumber file="build.num"/>
+     <tstamp>
+     <format property="build.date" pattern="yyyy-MM-dd hh:mm:ss" />
+     </tstamp>
+    <mkdir dir="${output.dir}"/>
+  </target>
+<!--  <target name="all" description="Build the project and war file" depends="clean,compile,copy,createwar,createear"/> -->
+
+  <target name="complete-clean" description="Clean the classes, delete war file and upacked version in jetty folder">
+    <delete includeemptydirs="true" quiet="false">
+      <fileset dir="${output.dir}" includes="**/*"/>
+      <fileset dir="deploy" includes="**/*"/>
+    </delete>
+  </target>
+
+  <target name="compile" description="Compile Java source files" depends="init, complete-clean">
+    <javac destdir="${output.dir}" classpathref="classpath" debug="${javac.debug}" nowarn="${javac.nowarn}" deprecation="${javac.deprecation}"
+           encoding="UTF-8" source="1.7" target="1.7">
+      <src path="src"/>
+    </javac>
+  </target>
+
+  <target name="create-sessionmgr-jar" description="Create session manager archive">
+  <jar destfile="deploy/jetty-nosql-onsql.jar">
+    <fileset dir="${output.dir}">
+	<filename name="org/eclipse/jetty/nosql/onsql/*.class"/>
+    </fileset>
+     <manifest>
+        <attribute name="Built-By" value="${user.name}"/>   
+        <attribute name="Implementation-Vendor" value="Andrey Prokopenko"/>
+        <attribute name="Implementation-Title" value="Jetty Oracle NoSQL session manager"/>
+        <attribute name="Specification-Version" value="${version.num}"/>
+        <attribute name="Implementation-Version" value="${version.num}-b${build.number}"/>
+        <attribute name="Built-Date" value="${build.date}"/>  
+    </manifest>  
+  </jar>
+    <copy todir="${jetty.smgr.deploy}">
+      <fileset dir="deploy">
+           <include name="jetty-nosql-onsql.jar"/>
+      </fileset>
+    </copy>
+  </target>
+
+</project>
