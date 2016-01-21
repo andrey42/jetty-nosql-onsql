@@ -154,10 +154,6 @@ public class KVStoreSessionManager extends NoSqlSessionManager
 		this.kvstore_object_ops = new ArrayList<Operation>();        
 	}
 
-	/* ------------------------------------------------------------ */
-	/**
-	 * @see org.eclipse.jetty.server.session.AbstractSessionManager#setSessionIdManager(org.eclipse.jetty.server.SessionIdManager)
-	 */
 	/*
     @Override
     public void setSessionIdManager(SessionIdManager mgr)
